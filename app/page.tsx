@@ -1,3 +1,4 @@
+import ProjectWrapper from "@/components/projects";
 import { Button } from "@/components/ui/button";
 import {
   faFacebook,
@@ -7,7 +8,7 @@ import {
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Briefcase, FolderClosed, UserRound } from "lucide-react";
+import { ArrowUpRight, Briefcase, FolderClosed, UserRound } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -111,12 +112,28 @@ export default function Home() {
               exploring new video games, and traveling to experience different
               cultures and perspectives.
             </p>
-            <p className="text-lg mb-4">
+            <p className="text-lg">
               My goal is to continue growing professionally, learning new
               technologies, and contributing to innovative projects. I love the
               idea of working in collaborative teams, where learning and
               creativity flow freely.
             </p>
+          </section>
+          {/* Projects */}
+          <section className="mb-16 lg:mb-36">
+            <ProjectWrapper />
+            <div className="flex items-center">
+              <Button asChild variant="link">
+                <Link
+                  href="https://github.com/mrearsbig"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Project History
+                </Link>
+              </Button>
+              <ArrowUpRight className="w-4 h-4" />
+            </div>
           </section>
         </main>
       </div>
