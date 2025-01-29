@@ -235,12 +235,12 @@ export default function Home() {
               </Link>
               . All text is beautifully rendered in the{" "}
               <Link
-                href="https://rsms.me/inter/"
+                href="https://vercel.com/font"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:text-orange-500"
               >
-                Inter
+                Geist
               </Link>{" "}
               typeface.
             </p>
