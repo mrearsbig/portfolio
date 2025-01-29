@@ -158,6 +158,93 @@ export default function Home() {
               <ArrowDown className="w-4 h-4" />
             </div>
           </section>
+          {/* Footer */}
+          <footer className="max-w-md pb-16 text-sm sm:pb-0">
+            <p>
+              Conceptualized in{" "}
+              <Link
+                href="https://www.figma.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-purple-500"
+              >
+                Figma
+              </Link>{" "}
+              and brought to life in{" "}
+              <Link
+                href="https://code.visualstudio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-blue-500"
+              >
+                Visual Studio Code
+              </Link>
+              . Built using{" "}
+              <Link
+                href="https://nextjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-black"
+              >
+                Next.js
+              </Link>
+              , styled with{" "}
+              <Link
+                href="https://tailwindcss.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-cyan-500"
+              >
+                Tailwind CSS
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="https://ui.shadcn.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-yellow-500"
+              >
+                shadcn
+              </Link>{" "}
+              components. Features powered by the{" "}
+              <Link
+                href="https://docs.github.com/en/rest"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-gray-500"
+              >
+                GitHub API
+              </Link>
+              , with icons from{" "}
+              <Link
+                href="https://fontawesome.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-indigo-500"
+              >
+                Font Awesome
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="https://lucide.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-green-500"
+              >
+                Lucide
+              </Link>
+              . All text is beautifully rendered in the{" "}
+              <Link
+                href="https://rsms.me/inter/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-orange-500"
+              >
+                Inter
+              </Link>{" "}
+              typeface.
+            </p>
+          </footer>
         </main>
       </div>
     </div>
