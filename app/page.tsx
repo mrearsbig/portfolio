@@ -1,3 +1,4 @@
+import ExperienceWrapper from "@/components/experience";
 import ProjectWrapper from "@/components/projects";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,7 +9,13 @@ import {
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ArrowUpRight, Briefcase, FolderClosed, UserRound } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Briefcase,
+  FolderClosed,
+  UserRound,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -133,6 +140,22 @@ export default function Home() {
                 </Link>
               </Button>
               <ArrowUpRight className="w-4 h-4" />
+            </div>
+          </section>
+          {/* Experience */}
+          <section className="mb-16 lg:mb-36">
+            <ExperienceWrapper />
+            <div className="flex items-center">
+              <Button asChild variant="link">
+                <Link
+                  href="/Vitae.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Complete Resume
+                </Link>
+              </Button>
+              <ArrowDown className="w-4 h-4" />
             </div>
           </section>
         </main>
