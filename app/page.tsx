@@ -23,7 +23,7 @@ export default function Home() {
     <div className="min-h-screen">
       <div className="mx-auto min-h-screen lg:px-24 px-6 flex flex-col lg:flex-row gap-12 lg:gap-24">
         {/* Left sidebar */}
-        <header className="lg:sticky lg:top-0 lg:max-h-screen lg:w-1/2 lg:flex lg:flex-col lg:justify-between lg:py-24">
+        <header className="lg:sticky lg:top-0 lg:max-h-screen lg:w-[40%] lg:flex lg:flex-col lg:justify-between lg:py-24">
           <div>
             <nav className="mb-16 hidden lg:block">
               <ul className="flex gap-4">
@@ -53,12 +53,14 @@ export default function Home() {
                 </li>
               </ul>
             </nav>
-            <h1 className="text-5xl font-bold mb-5">
+            <h1 className="text-5xl font-bold tracking-tight">
               <Link href="/">Alexander Viafara</Link>
             </h1>
-            <h2 className="text-2xl mb-4">Software Engineer</h2>
-            <p className="text-lg">
-              More than a developer, a architect of the future.
+            <h2 className="text-2xl mt-2 font-medium tracking-tight">
+              Software Engineer
+            </h2>
+            <p className="text-lg mt-3 leading-normal text-muted-foreground">
+              Turning ideas into great results — Code. Create. Conquer.
             </p>
           </div>
           {/* Social media */}
@@ -67,6 +69,7 @@ export default function Home() {
               href="https://github.com/mrearsbig"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-primary"
             >
               <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
             </Link>
@@ -74,6 +77,7 @@ export default function Home() {
               href="https://x.com/mrearsbig"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-primary"
             >
               <FontAwesomeIcon icon={faXTwitter} className="h-6 w-6" />
             </Link>
@@ -81,6 +85,7 @@ export default function Home() {
               href="https://www.linkedin.com/in/mrearsbig"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-primary"
             >
               <FontAwesomeIcon icon={faLinkedin} className="h-6 w-6" />
             </Link>
@@ -88,6 +93,7 @@ export default function Home() {
               href="https://www.instagram.com/mrearsbig"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-primary"
             >
               <FontAwesomeIcon icon={faInstagram} className="h-6 w-6" />
             </Link>
@@ -95,6 +101,7 @@ export default function Home() {
               href="https://www.facebook.com/mrearsbig"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-primary"
             >
               <FontAwesomeIcon icon={faFacebook} className="h-6 w-6" />
             </Link>
@@ -102,9 +109,9 @@ export default function Home() {
         </header>
 
         {/* Main content */}
-        <main className="lg:w-1/2 lg:py-24">
+        <main className="lg:w-[60%] lg:py-24">
           {/* About */}
-          <section className="mb-16 lg:mb-36">
+          <section id="about" className="mb-16 lg:mb-36 scroll-mt-24">
             <p className="text-muted-foreground text-lg mb-4">
               I am <span className="text-foreground">Alexander Viafara</span>, a
               passionate{" "}
@@ -152,7 +159,7 @@ export default function Home() {
             </p>
           </section>
           {/* Projects */}
-          <section className="mb-16 lg:mb-36">
+          <section id="projects" className="mb-16 lg:mb-36 scroll-mt-24">
             <ProjectWrapper />
             <div className="flex items-center">
               <Button
@@ -172,7 +179,7 @@ export default function Home() {
             </div>
           </section>
           {/* Experience */}
-          <section className="mb-16 lg:mb-36">
+          <section id="experience" className="mb-16 lg:mb-36 scroll-mt-24">
             <ExperienceWrapper />
             <div className="flex items-center">
               <Button
