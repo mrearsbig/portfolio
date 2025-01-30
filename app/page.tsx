@@ -105,68 +105,101 @@ export default function Home() {
         <main className="lg:w-1/2 lg:py-24">
           {/* About */}
           <section className="mb-16 lg:mb-36">
-            <p className="text-lg mb-4">
-              I am Alexander Viafara, a passionate software developer and
-              empirical designer. My journey in the software world started more
-              than three years ago, and since then, I have developed a unique
-              ability to combine programming logic with visual design, always
-              aiming for the best user experience.
+            <p className="text-muted-foreground text-lg mb-4">
+              I am <span className="text-foreground">Alexander Viafara</span>, a
+              passionate{" "}
+              <span className="text-foreground">software developer</span> and{" "}
+              <span className="text-foreground">empirical designer</span>. My
+              journey in the software world started{" "}
+              <span className="text-foreground">more than three years ago</span>
+              , and since then, I have developed a unique ability to{" "}
+              <span className="text-foreground">
+                combine programming logic with visual design
+              </span>
+              , always aiming for the{" "}
+              <span className="text-foreground">best user experience</span>.
             </p>
-            <p className="text-lg mb-4">
-              Throughout my career, I have worked on various projects, from
-              enterprise systems to mobile applications, always with a focus on
-              detail and usability. Outside of work, I enjoy playing soccer,
-              exploring new video games, and traveling to experience different
-              cultures and perspectives.
+
+            <p className="text-muted-foreground text-lg mb-4">
+              Throughout my career, I have worked on{" "}
+              <span className="text-foreground">various projects</span>, from{" "}
+              <span className="text-foreground">enterprise systems</span> to{" "}
+              <span className="text-foreground">mobile applications</span>,
+              always with a focus on{" "}
+              <span className="text-foreground">detail and usability</span>.
+              Outside of work, I enjoy{" "}
+              <span className="text-foreground">playing soccer</span>,{" "}
+              <span className="text-foreground">exploring new video games</span>
+              , and <span className="text-foreground">traveling</span> to
+              experience{" "}
+              <span className="text-foreground">
+                different cultures and perspectives
+              </span>
+              .
             </p>
-            <p className="text-lg">
-              My goal is to continue growing professionally, learning new
-              technologies, and contributing to innovative projects. I love the
-              idea of working in collaborative teams, where learning and
-              creativity flow freely.
+
+            <p className="text-muted-foreground text-lg mb-4">
+              My goal is to continue{" "}
+              <span className="text-foreground">growing professionally</span>,{" "}
+              <span className="text-foreground">learning new technologies</span>
+              , and contributing to{" "}
+              <span className="text-foreground">innovative projects</span>. I
+              love the idea of working in{" "}
+              <span className="text-foreground">collaborative teams</span>,
+              where{" "}
+              <span className="text-foreground">learning and creativity</span>{" "}
+              flow freely.
             </p>
           </section>
           {/* Projects */}
           <section className="mb-16 lg:mb-36">
             <ProjectWrapper />
             <div className="flex items-center">
-              <Button asChild variant="link">
+              <Button
+                asChild
+                variant="link"
+                className="text-black hover:text-primary text-lg"
+              >
                 <Link
                   href="https://github.com/mrearsbig"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   View Project History
+                  <ArrowUpRight className="w-4 h-4" />
                 </Link>
               </Button>
-              <ArrowUpRight className="w-4 h-4" />
             </div>
           </section>
           {/* Experience */}
           <section className="mb-16 lg:mb-36">
             <ExperienceWrapper />
             <div className="flex items-center">
-              <Button asChild variant="link">
+              <Button
+                asChild
+                variant="link"
+                className="text-black hover:text-primary text-lg"
+              >
                 <Link
                   href="/Vitae.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   View Complete Resume
+                  <ArrowDown className="w-4 h-4" />
                 </Link>
               </Button>
-              <ArrowDown className="w-4 h-4" />
             </div>
           </section>
           {/* Footer */}
           <footer className="max-w-md pb-16 text-sm sm:pb-0">
-            <p>
+            <p className="text-muted-foreground">
               Conceptualized in{" "}
               <Link
                 href="https://www.figma.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-purple-500"
+                className="underline text-foreground hover:text-purple-500"
               >
                 Figma
               </Link>{" "}
@@ -175,7 +208,7 @@ export default function Home() {
                 href="https://code.visualstudio.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-blue-500"
+                className="underline text-foreground hover:text-blue-500"
               >
                 Visual Studio Code
               </Link>
@@ -184,7 +217,7 @@ export default function Home() {
                 href="https://nextjs.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-black"
+                className="underline text-foreground hover:text-black"
               >
                 Next.js
               </Link>
@@ -193,7 +226,7 @@ export default function Home() {
                 href="https://tailwindcss.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-cyan-500"
+                className="underline text-foreground hover:text-cyan-500"
               >
                 Tailwind CSS
               </Link>{" "}
@@ -202,7 +235,7 @@ export default function Home() {
                 href="https://ui.shadcn.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-yellow-500"
+                className="underline text-foreground hover:text-yellow-500"
               >
                 shadcn
               </Link>{" "}
@@ -211,7 +244,7 @@ export default function Home() {
                 href="https://docs.github.com/en/rest"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-gray-500"
+                className="underline text-foreground hover:text-gray-500"
               >
                 GitHub API
               </Link>
@@ -220,7 +253,7 @@ export default function Home() {
                 href="https://fontawesome.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-indigo-500"
+                className="underline text-foreground hover:text-indigo-500"
               >
                 Font Awesome
               </Link>{" "}
@@ -229,16 +262,25 @@ export default function Home() {
                 href="https://lucide.dev/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-green-500"
+                className="underline text-foreground hover:text-green-500"
               >
                 Lucide
+              </Link>
+              . Hosted and deployed on{" "}
+              <Link
+                href="https://vercel.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-foreground hover:text-black"
+              >
+                Vercel
               </Link>
               . All text is beautifully rendered in the{" "}
               <Link
                 href="https://vercel.com/font"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-orange-500"
+                className="underline text-foreground hover:text-orange-500"
               >
                 Geist
               </Link>{" "}

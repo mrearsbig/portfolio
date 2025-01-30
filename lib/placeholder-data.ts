@@ -5,7 +5,7 @@ export const experience = [
     html_url: "https://www.ceiba.com.co/",
     position: "Trainee Architect Developer",
     description:
-      "Participé en el desarrollo completo de proyectos tanto en el frontend como en el backend, asegurando un flujo integral desde la interfaz de usuario hasta la lógica del servidor. Diseñé interfaces y prototipos en Figma, utilizando mi experiencia en diseño para facilitar la planificación y visualización de los proyectos. Colaboré en equipos multidisciplinarios bajo metodologías ágiles, contribuyendo activamente en reuniones de planificación, revisiones de código y asegurando la calidad de los entregables. Además, adquirí experiencia en buenas prácticas de desarrollo y diseño de software, enfocándome en mejorar la eficiencia, escalabilidad y mantenibilidad del código.",
+      "I participated in the full development of projects on both the frontend and backend, ensuring a seamless flow from the user interface to the server logic. I designed interfaces and prototypes in Figma, leveraging my design expertise to facilitate project planning and visualization. I collaborated in multidisciplinary teams under agile methodologies, actively contributing to planning meetings, code reviews, and ensuring the quality of deliverables. Additionally, I gained experience in best practices for software development and design, focusing on improving code efficiency, scalability, and maintainability.",
     topics: [
       "HTML & CSS",
       "JavaScript",

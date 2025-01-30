@@ -30,7 +30,7 @@ export default function ExperienceWrapper() {
 
 export function ExperienceCard({ experience }: ExperienceCardProps) {
   return (
-    <Card className="border-black text-black lg:mb-12">
+    <Card className="lg:mb-12">
       <CardHeader className="pb-2">
         <span className="text-sm text-muted-foreground">{`${experience.start_date.toUpperCase()} — ${experience.end_date.toUpperCase()}`}</span>
       </CardHeader>

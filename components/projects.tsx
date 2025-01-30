@@ -32,17 +32,16 @@ export default async function ProjectWrapper() {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="border-black w-auto text-black lg:mb-12">
+    <Card className="w-auto lg:mb-12">
       <CardContent className="p-6 space-y-6">
         {/* Main content area */}
         <div className="w-full">
           <AspectRatio ratio={16 / 9}>
             <Image
               src={`/projects/${project.name}.png`}
-              width={500}
-              height={500}
+              fill
               alt="Picture of the project"
-              className="rounded-xl"
+              className="rounded-xl object-cover"
             />
           </AspectRatio>
         </div>
@@ -50,7 +49,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {/* Link and description section */}
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <span className="text-lg">{project.name}</span>
+            <span className="text-lg font-medium">
+              {project.name.replace(/(^\w|-\w)/g, (match) =>
+                match.replace("-", " ").toUpperCase()
+              )}
+            </span>
             <ArrowUpRight className="w-4 h-4" />
           </div>
           <span className="text-base text-muted-foreground">
@@ -63,7 +66,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="flex flex-wrap gap-2">
             {project.topics.map((topic, index) => (
               <Badge key={index} variant="outline">
-                {topic}
+                {topic.replace(/(^\w|-\w)/g, (match) =>
+                  match.replace("-", " ").toUpperCase()
+                )}
               </Badge>
             ))}
           </div>
