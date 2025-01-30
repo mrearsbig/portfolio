@@ -44,7 +44,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
           <p className="text-muted-foreground">{experience.description}</p>
         </div>
 
-        <div className="flex flex-wrap gap-2 max-w-md">
+        <div className="flex flex-wrap gap-2">
           {experience.topics.map((topic, index) => (
             <Badge key={index} variant="outline">
               {topic}
