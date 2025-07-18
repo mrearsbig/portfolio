@@ -11,6 +11,9 @@
   "dependencies": {
     "@astrojs/react": "^4.3.0",
     "@fontsource-variable/geist": "^5.2.6",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@radix-ui/react-aspect-ratio": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.11",
