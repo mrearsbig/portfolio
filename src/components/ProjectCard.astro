@@ -1,0 +1,57 @@
+---
+import { ArrowUpRight } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import type { GitHubRepo } from "@/lib/github";
+
+const { id, name, description, html_url, homepage, topics } =
+  Astro.props as GitHubRepo;
+
+// Format text
+const formatText = (text: string) =>
+  text.replace(/(^\w|-\w)/g, (match) => match.replace("-", " ").toUpperCase());
+---
+
+<a href={homepage || html_url} target="_blank" rel="noopener noreferrer">
+  <Card className="mb-6 shadow-none border-none">
+    <CardHeader>
+      <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg">
+        <img
+          src={`/projects/${name}.png`}
+          alt={`Photo by ${formatText(name)}`}
+          class="h-full w-full rounded-lg object-cover dark:brightness-[0.2] dark:grayscale"
+        />
+      </AspectRatio>
+    </CardHeader>
+    <CardContent className="space-y-4">
+      <CardTitle className="flex gap-2 items-center hover:text-primary">
+        {formatText(name)}
+        <ArrowUpRight strokeWidth={3} className="h-4 w-4" />
+      </CardTitle>
+      <CardDescription
+        >{description || "No description provided."}</CardDescription
+      >
+    </CardContent>
+    {
+      topics.length ? (
+        <CardFooter>
+          <div class="flex gap-2 flex-wrap">
+            {topics.map((topic) => (
+              <Badge className="bg-primary/10 text-primary px-3 py-1 rounded-full">
+                {formatText(topic)}
+              </Badge>
+            ))}
+          </div>
+        </CardFooter>
+      ) : null
+    }
+  </Card>
+</a>

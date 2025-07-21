@@ -1,0 +1,131 @@
+---
+import mrearsbigLogo from "../assets/mrearsbig.svg";
+import { UserRound, FolderClosed, Briefcase } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faLinkedin,
+  faXTwitter,
+  faInstagram,
+  faFacebook,
+} from "@fortawesome/free-brands-svg-icons";
+import { Button } from "./ui/button";
+---
+
+<div class="min-h-screen w-full relative bg-white">
+  {/* Soft Yellow Glow */}
+  <div
+    class="absolute inset-0 z-0"
+    style={{
+      backgroundImage: `
+        radial-gradient(circle at center, #FFB300 0%, transparent 70%)
+      `,
+      opacity: 0.6,
+      mixBlendMode: "multiply",
+    }}
+  >
+  </div>
+  {/* Your Content/Components */}
+  <header class="flex h-screen flex-col items-center justify-around px-6">
+    <!-- Logo -->
+    <div>
+      <a href="#"
+        ><img
+          src={mrearsbigLogo.src}
+          alt="Mrearsbig Homepage"
+          width="117"
+          height="32"
+        /></a
+      >
+    </div>
+
+    <!-- Navigation (Visible solo en desktop) -->
+    <nav class="hidden">
+      <ul class="flex gap-4">
+        <li>
+          <a href="#about">
+            <Button variant="outline">
+              <UserRound /> About
+            </Button>
+          </a>
+        </li>
+        <li>
+          <a href="#projects">
+            <Button variant="outline">
+              <FolderClosed /> Projects
+            </Button>
+          </a>
+        </li>
+        <li>
+          <a href="#experience">
+            <Button variant="outline">
+              <Briefcase /> Experience
+            </Button>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Personal -->
+    <section class="flex flex-col items-center text-center">
+      <hgroup class="flex flex-col gap-2 mb-3">
+        <h1 class="text-5xl font-bold">Alexander Viafara</h1>
+        <h2 class="text-2xl font-medium">Systems Engineer</h2>
+      </hgroup>
+      <p class="text-muted-foreground max-w-2xs">
+        Turning ideas into great results — Code. Create. Conquer.
+      </p>
+    </section>
+
+    <!-- Social -->
+    <nav>
+      <ul class="flex gap-4">
+        <li>
+          <a
+            href="http://github.com/mrearsbig"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://linkedin.com/in/mrearsbig"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faLinkedin} className="h-6 w-6" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://x.com/mrearsbig"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faXTwitter} className="h-6 w-6" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://instagram.com/mrearsbig"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faInstagram} className="h-6 w-6" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://facebook.com/mrearsbig"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faFacebook} className="h-6 w-6" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>

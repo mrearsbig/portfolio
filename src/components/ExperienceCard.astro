@@ -1,0 +1,64 @@
+---
+import { ArrowUpRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import {
+  formatExperienceDate,
+  parseFrontmatterDate,
+} from "@/lib/dateFormatter";
+
+interface Props {
+  title: string;
+  company: string;
+  startDate: Date | string;
+  endDate: Date | string;
+  technologies: string[];
+  url: string;
+}
+
+const { title, company, startDate, endDate, technologies, url } = Astro.props;
+
+// Parsear fechas
+const parsedStart = parseFrontmatterDate(startDate);
+const parsedEnd =
+  endDate === "Present" ? "Present" : parseFrontmatterDate(endDate);
+
+// Formatear periodo
+const formattedPeriod = formatExperienceDate(parsedStart, parsedEnd);
+---
+
+<a href={url} target="_blank" rel="noopener noreferrer">
+  <Card className="mb-6 shadow-none border-none">
+    <CardHeader>
+      <span class="text-muted-foreground text-xs">{formattedPeriod}</span>
+    </CardHeader>
+    <CardContent className="space-y-4">
+      <CardTitle className="leading-tight hover:text-primary">
+        {title} • <span class="inline-flex items-center gap-2"
+          >{company} <ArrowUpRight strokeWidth={3} className="h-4 w-4" /></span
+        >
+      </CardTitle>
+      <CardDescription><slot /></CardDescription>
+    </CardContent>
+    <CardFooter>
+      {
+        technologies.length ? (
+          <div class="flex gap-2 flex-wrap">
+            {technologies.map((tech) => (
+              <Badge className="bg-primary/10 text-primary px-3 py-1 rounded-full">
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        ) : null
+      }
+    </CardFooter>
+  </Card>
+</a>
