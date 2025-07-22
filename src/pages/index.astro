@@ -23,62 +23,83 @@ const experiences = (await getCollection("experiences")).sort((a, b) => {
 ---
 
 <Layout>
-  {/* Header */}
-  <Header />
+  <div
+    class="mx-auto min-h-screen max-w-screen-xl lg:px-6 lg:flex lg:justify-between lg:gap-4"
+  >
+    {/* Header */}
+    <Header />
 
-  {/* Main content */}
-  <main>
-    {/* About */}
-    <section id="about" class="py-20">
-      <div class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10">
-        <h2 class="font-bold uppercase tracking-widest">About</h2>
-      </div>
-      <About />
-    </section>
+    {/* Main content */}
+    <main class="lg:w-[52%]">
+      {/* About */}
+      <section id="about" class="py-20">
+        <div
+          class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10 lg:hidden"
+        >
+          <h2 class="font-bold uppercase tracking-widest">About</h2>
+        </div>
+        <About />
+      </section>
 
-    {/* Projects */}
-    <section id="projects" class="pb-20">
-      <div class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10">
-        <h2 class="font-bold uppercase tracking-widest">Projects</h2>
-      </div>
-      {projects.map((project) => <ProjectCard {...project} />)}
-      <a
-        href="https://github.com/mrearsbig"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="px-3"
-        ><Button
-          variant="link"
-          className="text-black text-base font-semibold hover:text-primary"
-          >View Project History <ArrowUpRight strokeWidth={3} /></Button
-        ></a
-      >
-    </section>
+      {/* Projects */}
+      <section id="projects" class="pb-20 scroll-mt-20">
+        <div
+          class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10 lg:hidden"
+        >
+          <h2 class="font-bold uppercase tracking-widest">Projects</h2>
+        </div>
+        {projects.map((project) => <ProjectCard {...project} />)}
+        <a
+          href="https://github.com/mrearsbig"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-3 group"
+          ><Button
+            variant="link"
+            className="text-black text-base font-semibold hover:text-primary"
+            >View Project History <ArrowUpRight
+              strokeWidth={3}
+              className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+            /></Button
+          ></a
+        >
+      </section>
 
-    {/* Experience */}
-    <section id="experience" class="pb-20">
-      <div class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10">
-        <h2 class="font-bold uppercase tracking-widest">Experience</h2>
-      </div>
-      {
-        experiences.map((exp) => (
-          <ExperienceCard {...exp.data}>{exp.body}</ExperienceCard>
-        ))
-      }
-      <a
-        href="/resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="px-3"
-        ><Button
-          variant="link"
-          className="text-black text-base font-semibold hover:text-primary"
-          >View Complete Resume <ArrowDown strokeWidth={3} /></Button
-        ></a
-      >
-    </section>
+      {/* Experience */}
+      <section id="experience" class="pb-20 scroll-mt-20">
+        <div
+          class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10 lg:hidden"
+        >
+          <h2 class="font-bold uppercase tracking-widest">Experience</h2>
+        </div>
+        {
+          experiences.map((exp) => (
+            <ExperienceCard {...exp.data}>{exp.body}</ExperienceCard>
+          ))
+        }
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-3 group"
+          ><Button
+            variant="link"
+            className="text-black text-base font-semibold hover:text-primary"
+            >View Complete Resume <ArrowDown
+              strokeWidth={3}
+              className="group-hover:animate-bounce"
+            /></Button
+          ></a
+        >
+      </section>
 
-    {/* Footer */}
-    <Footer />
-  </main>
+      {/* Footer */}
+      <Footer />
+    </main>
+  </div>
+
+  {/* Scroll script */}
+  <script>
+    import "../scripts/scroll.js";
+  </script>
 </Layout>

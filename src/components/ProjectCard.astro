@@ -20,23 +20,33 @@ const formatText = (text: string) =>
   text.replace(/(^\w|-\w)/g, (match) => match.replace("-", " ").toUpperCase());
 ---
 
-<a href={homepage || html_url} target="_blank" rel="noopener noreferrer">
-  <Card className="mb-6 shadow-none border-none">
+<a
+  href={homepage || html_url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group"
+>
+  <Card
+    className="mb-6 shadow-none border-none lg:group-hover:shadow-sm lg:group-hover:border"
+  >
     <CardHeader>
       <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg">
         <img
           src={`/projects/${name}.png`}
           alt={`Photo by ${formatText(name)}`}
-          class="h-full w-full rounded-lg object-cover dark:brightness-[0.2] dark:grayscale"
+          class="h-full w-full rounded-lg object-cover dark:brightness-[0.2] dark:grayscale group-hover:dark:brightness-100 group-hover:dark:grayscale-0 transition-all"
         />
       </AspectRatio>
     </CardHeader>
     <CardContent className="space-y-4">
-      <CardTitle className="flex gap-2 items-center hover:text-primary">
+      <CardTitle className="flex gap-2 items-center group-hover:text-primary">
         {formatText(name)}
-        <ArrowUpRight strokeWidth={3} className="h-4 w-4" />
+        <ArrowUpRight
+          strokeWidth={3}
+          className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+        />
       </CardTitle>
-      <CardDescription
+      <CardDescription className="transition-colors group-hover:text-foreground/80"
         >{description || "No description provided."}</CardDescription
       >
     </CardContent>

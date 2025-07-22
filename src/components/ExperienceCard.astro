@@ -34,18 +34,27 @@ const parsedEnd =
 const formattedPeriod = formatExperienceDate(parsedStart, parsedEnd);
 ---
 
-<a href={url} target="_blank" rel="noopener noreferrer">
-  <Card className="mb-6 shadow-none border-none">
+<a href={url} target="_blank" rel="noopener noreferrer" class="group">
+  <Card
+    className="mb-6 shadow-none border-none lg:group-hover:shadow-sm lg:group-hover:border"
+  >
     <CardHeader>
       <span class="text-muted-foreground text-xs">{formattedPeriod}</span>
     </CardHeader>
     <CardContent className="space-y-4">
-      <CardTitle className="leading-tight hover:text-primary">
+      <CardTitle className="leading-tight group-hover:text-primary">
         {title} • <span class="inline-flex items-center gap-2"
-          >{company} <ArrowUpRight strokeWidth={3} className="h-4 w-4" /></span
+          >{company}
+          <ArrowUpRight
+            strokeWidth={3}
+            className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+          /></span
         >
       </CardTitle>
-      <CardDescription><slot /></CardDescription>
+      <CardDescription
+        className="transition-colors group-hover:text-foreground/80"
+        ><slot /></CardDescription
+      >
     </CardContent>
     <CardFooter>
       {

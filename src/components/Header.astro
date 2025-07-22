@@ -12,10 +12,12 @@ import {
 import { Button } from "./ui/button";
 ---
 
-<div class="min-h-screen w-full relative bg-white">
+<div
+  class="min-h-screen w-full relative bg-white lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between"
+>
   {/* Soft Yellow Glow */}
   <div
-    class="absolute inset-0 z-0"
+    class="absolute inset-0 z-0 lg:hidden"
     style={{
       backgroundImage: `
         radial-gradient(circle at center, #FFB300 0%, transparent 70%)
@@ -26,10 +28,12 @@ import { Button } from "./ui/button";
   >
   </div>
   {/* Your Content/Components */}
-  <header class="flex h-screen flex-col items-center justify-around px-6">
-    <!-- Logo -->
-    <div>
-      <a href="#"
+  <header
+    class="flex h-screen flex-col items-center justify-around px-6 lg:items-start lg:justify-between lg:py-20"
+  >
+    {/* Logo */}
+    <div class="lg:hidden">
+      <a href="/"
         ><img
           src={mrearsbigLogo.src}
           alt="Mrearsbig Homepage"
@@ -39,45 +43,52 @@ import { Button } from "./ui/button";
       >
     </div>
 
-    <!-- Navigation (Visible solo en desktop) -->
-    <nav class="hidden">
-      <ul class="flex gap-4">
-        <li>
-          <a href="#about">
-            <Button variant="outline">
-              <UserRound /> About
-            </Button>
-          </a>
-        </li>
-        <li>
-          <a href="#projects">
-            <Button variant="outline">
-              <FolderClosed /> Projects
-            </Button>
-          </a>
-        </li>
-        <li>
-          <a href="#experience">
-            <Button variant="outline">
-              <Briefcase /> Experience
-            </Button>
-          </a>
-        </li>
-      </ul>
-    </nav>
+    {/* Personal and Navigation */}
+    <div class="flex flex-col gap-16">
+      {/* Personal */}
+      <section
+        class="flex flex-col items-center text-center lg:items-start lg:text-start lg:pt-6"
+      >
+        <hgroup class="flex flex-col gap-2 mb-3">
+          <h1 class="text-5xl font-bold tracking-tight">
+            <a href="/">Alexander Viafara</a>
+          </h1>
+          <h2 class="text-2xl font-medium tracking-tight">Systems Engineer</h2>
+        </hgroup>
+        <p class="text-muted-foreground max-w-2xs lg:max-w-xs">
+          Turning ideas into great results — Code. Create. Conquer.
+        </p>
+      </section>
 
-    <!-- Personal -->
-    <section class="flex flex-col items-center text-center">
-      <hgroup class="flex flex-col gap-2 mb-3">
-        <h1 class="text-5xl font-bold">Alexander Viafara</h1>
-        <h2 class="text-2xl font-medium">Systems Engineer</h2>
-      </hgroup>
-      <p class="text-muted-foreground max-w-2xs">
-        Turning ideas into great results — Code. Create. Conquer.
-      </p>
-    </section>
+      {/* Navigation (Visible solo en desktop) */}
+      <nav class="hidden lg:block">
+        <ul class="flex flex-col gap-4">
+          <li>
+            <a href="#about">
+              <Button variant="ghost">
+                <UserRound /> About
+              </Button>
+            </a>
+          </li>
+          <li>
+            <a href="#projects">
+              <Button variant="ghost">
+                <FolderClosed /> Projects
+              </Button>
+            </a>
+          </li>
+          <li>
+            <a href="#experience">
+              <Button variant="ghost">
+                <Briefcase /> Experience
+              </Button>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-    <!-- Social -->
+    {/* Social Media Icons */}
     <nav>
       <ul class="flex gap-4">
         <li>
@@ -85,6 +96,7 @@ import { Button } from "./ui/button";
             href="http://github.com/mrearsbig"
             target="_blank"
             rel="noopener noreferrer"
+            class="text-muted-foreground hover:text-foreground/80"
           >
             <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
           </a>
@@ -94,6 +106,7 @@ import { Button } from "./ui/button";
             href="http://linkedin.com/in/mrearsbig"
             target="_blank"
             rel="noopener noreferrer"
+            class="text-muted-foreground hover:text-foreground/80"
           >
             <FontAwesomeIcon icon={faLinkedin} className="h-6 w-6" />
           </a>
@@ -103,6 +116,7 @@ import { Button } from "./ui/button";
             href="http://x.com/mrearsbig"
             target="_blank"
             rel="noopener noreferrer"
+            class="text-muted-foreground hover:text-foreground/80"
           >
             <FontAwesomeIcon icon={faXTwitter} className="h-6 w-6" />
           </a>
@@ -112,6 +126,7 @@ import { Button } from "./ui/button";
             href="http://instagram.com/mrearsbig"
             target="_blank"
             rel="noopener noreferrer"
+            class="text-muted-foreground hover:text-foreground/80"
           >
             <FontAwesomeIcon icon={faInstagram} className="h-6 w-6" />
           </a>
@@ -121,6 +136,7 @@ import { Button } from "./ui/button";
             href="http://facebook.com/mrearsbig"
             target="_blank"
             rel="noopener noreferrer"
+            class="text-muted-foreground hover:text-foreground/80"
           >
             <FontAwesomeIcon icon={faFacebook} className="h-6 w-6" />
           </a>
