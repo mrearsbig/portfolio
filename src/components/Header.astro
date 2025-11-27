@@ -10,10 +10,11 @@ import {
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
 import { Button } from "./ui/button";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <div
-  class="min-h-screen w-full relative bg-white lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between"
+  class="min-h-screen w-full relative bg-white dark:bg-background lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between"
 >
   {/* Soft Yellow Glow */}
   <div
@@ -61,7 +62,7 @@ import { Button } from "./ui/button";
       </section>
 
       {/* Navigation (Visible solo en desktop) */}
-      <nav class="hidden lg:block">
+      <nav class="hidden lg:block" aria-label="Navegación principal">
         <ul class="flex flex-col gap-4">
           <li>
             <a href="#about">
@@ -88,60 +89,68 @@ import { Button } from "./ui/button";
       </nav>
     </div>
 
-    {/* Social Media Icons */}
-    <nav>
-      <ul class="flex gap-4">
-        <li>
-          <a
-            href="http://github.com/mrearsbig"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-muted-foreground hover:text-foreground/80"
-          >
-            <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="http://linkedin.com/in/mrearsbig"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-muted-foreground hover:text-foreground/80"
-          >
-            <FontAwesomeIcon icon={faLinkedin} className="h-6 w-6" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="http://x.com/mrearsbig"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-muted-foreground hover:text-foreground/80"
-          >
-            <FontAwesomeIcon icon={faXTwitter} className="h-6 w-6" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="http://instagram.com/mrearsbig"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-muted-foreground hover:text-foreground/80"
-          >
-            <FontAwesomeIcon icon={faInstagram} className="h-6 w-6" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="http://facebook.com/mrearsbig"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-muted-foreground hover:text-foreground/80"
-          >
-            <FontAwesomeIcon icon={faFacebook} className="h-6 w-6" />
-          </a>
-        </li>
-      </ul>
-    </nav>
+    {/* Social Media Icons and Theme Toggle */}
+    <div class="flex items-center gap-6">
+      <nav aria-label="Redes sociales">
+        <ul class="flex gap-4">
+          <li>
+            <a
+              href="http://github.com/mrearsbig"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground hover:text-foreground/80 transition-colors"
+              aria-label="Perfil de GitHub"
+            >
+              <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://linkedin.com/in/mrearsbig"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground hover:text-foreground/80 transition-colors"
+              aria-label="Perfil de LinkedIn"
+            >
+              <FontAwesomeIcon icon={faLinkedin} className="h-6 w-6" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://x.com/mrearsbig"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground hover:text-foreground/80 transition-colors"
+              aria-label="Perfil de X (Twitter)"
+            >
+              <FontAwesomeIcon icon={faXTwitter} className="h-6 w-6" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://instagram.com/mrearsbig"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground hover:text-foreground/80 transition-colors"
+              aria-label="Perfil de Instagram"
+            >
+              <FontAwesomeIcon icon={faInstagram} className="h-6 w-6" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://facebook.com/mrearsbig"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted-foreground hover:text-foreground/80 transition-colors"
+              aria-label="Perfil de Facebook"
+            >
+              <FontAwesomeIcon icon={faFacebook} className="h-6 w-6" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <ThemeToggle />
+    </div>
   </header>
 </div>

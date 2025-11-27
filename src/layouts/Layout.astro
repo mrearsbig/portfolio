@@ -1,34 +1,94 @@
 ---
 import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Alexander Viafara | Software Developer",
+  description = "Software Developer especializado en desarrollo web moderno. Experiencia en React, TypeScript, Node.js y arquitecturas cloud. Creando soluciones digitales innovadoras.",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/og-image.png", Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Alexander Viafara" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="es_CO" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Preconnect to external origins -->
+    <link rel="dns-prefetch" href="https://api.github.com" />
+    <link rel="preconnect" href="https://api.github.com" crossorigin />
+
     <!-- Preload critical fonts for optimal performance -->
-    <link 
-      rel="preload" 
-      href="/fonts/geist-latin-wght-normal.woff2" 
-      as="font" 
-      type="font/woff2" 
+    <link
+      rel="preload"
+      href="/fonts/geist-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
       crossorigin
     />
-    <link 
-      rel="preload" 
-      href="/fonts/geist-latin-ext-wght-normal.woff2" 
-      as="font" 
-      type="font/woff2" 
+    <link
+      rel="preload"
+      href="/fonts/geist-latin-ext-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
       crossorigin
     />
-    
-    <title>Alexander Viafara</title>
+
+    <!-- JSON-LD Structured Data -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Alexander Viafara",
+        url: Astro.site?.toString(),
+        jobTitle: "Software Developer",
+        sameAs: [
+          "https://github.com/mrearsbig",
+          "https://linkedin.com/in/alexanderviafara",
+        ],
+      })}
+    />
   </head>
   <body>
+    <!-- Skip to main content link for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:outline-none"
+    >
+      Saltar al contenido principal
+    </a>
     <slot />
   </body>
 </html>

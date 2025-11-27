@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
   // 1. Seleccionar los botones de navegación y las secciones
   // Se apunta directamente al botón dentro del enlace para cambiar sus clases
   const navButtons = document.querySelectorAll("header nav a button");
@@ -37,11 +42,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
-        // 3. Implementar desplazamiento suave
+        // 3. Implementar desplazamiento (suave o instantáneo según preferencia)
         targetElement.scrollIntoView({
-          behavior: "smooth",
+          behavior: prefersReducedMotion ? "instant" : "smooth",
           block: "start",
         });
+
+        // 4. Focus management para accesibilidad
+        // Establecer tabindex temporalmente si no es focusable
+        if (!targetElement.hasAttribute("tabindex")) {
+          targetElement.setAttribute("tabindex", "-1");
+        }
+        targetElement.focus({ preventScroll: true });
       }
     });
   });

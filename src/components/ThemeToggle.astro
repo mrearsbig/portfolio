@@ -1,0 +1,71 @@
+---
+/**
+ * ThemeToggle Component
+ *
+ * Permite alternar entre modo claro y oscuro.
+ * Persiste la preferencia en localStorage y respeta la preferencia del sistema.
+ */
+import { Moon, Sun } from "lucide-react";
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  class="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+  aria-label="Alternar modo oscuro"
+>
+  <Sun
+    className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+  />
+  <Moon
+    className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+  />
+  <span class="sr-only">Alternar tema</span>
+</button>
+
+<script>
+  const themeToggle = document.getElementById("theme-toggle");
+
+  // Get initial theme from localStorage or system preference
+  const getThemePreference = (): "light" | "dark" => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark" || storedTheme === "light") {
+      return storedTheme;
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+
+  // Apply theme to document
+  const applyTheme = (theme: "light" | "dark") => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
+  // Initialize theme
+  applyTheme(getThemePreference());
+
+  // Toggle theme on button click
+  themeToggle?.addEventListener("click", () => {
+    const currentTheme = document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+    localStorage.setItem("theme", newTheme);
+    applyTheme(newTheme);
+  });
+
+  // Listen for system preference changes
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (e) => {
+      if (!localStorage.getItem("theme")) {
+        applyTheme(e.matches ? "dark" : "light");
+      }
+    });
+</script>

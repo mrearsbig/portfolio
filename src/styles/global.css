@@ -149,4 +149,51 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Text selection color - primary color */
+  ::selection {
+    background-color: oklch(0.8179 0.1705 77.95);
+    color: oklch(0.421 0.095 57.708);
+  }
+  
+  ::-moz-selection {
+    background-color: oklch(0.8179 0.1705 77.95);
+    color: oklch(0.421 0.095 57.708);
+  }
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles for professional portfolio printing */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .lg\:hidden,
+  nav,
+  button {
+    display: none !important;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
 }

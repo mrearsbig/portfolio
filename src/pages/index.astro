@@ -8,18 +8,21 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
 import { parseFrontmatterDate } from "@/lib/dateFormatter";
 import { type GitHubRepo, getGithubProjects } from "@/lib/github";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 // Fetch GitHub projects and experiences
 const projects: GitHubRepo[] = await getGithubProjects();
 
-// Sort experiences by start date
-const experiences = (await getCollection("experiences")).sort((a, b) => {
-  const aStart = parseFrontmatterDate(a.data.startDate);
-  const bStart = parseFrontmatterDate(b.data.startDate);
-  return bStart.getTime() - aStart.getTime();
-});
+// Sort experiences by start date - typed for TypeScript
+type Experience = CollectionEntry<"experiences">;
+const experiences: Experience[] = (await getCollection("experiences")).sort(
+  (a: Experience, b: Experience) => {
+    const aStart = parseFrontmatterDate(a.data.startDate);
+    const bStart = parseFrontmatterDate(b.data.startDate);
+    return bStart.getTime() - aStart.getTime();
+  }
+);
 ---
 
 <Layout>
@@ -30,11 +33,11 @@ const experiences = (await getCollection("experiences")).sort((a, b) => {
     <Header />
 
     {/* Main content */}
-    <main class="lg:w-[52%]">
+    <main id="main-content" class="lg:w-[52%]">
       {/* About */}
       <section id="about" class="py-20">
         <div
-          class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10 lg:hidden"
+          class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10 lg:hidden dark:bg-background/90"
         >
           <h2 class="font-bold uppercase tracking-widest">About</h2>
         </div>
@@ -44,7 +47,7 @@ const experiences = (await getCollection("experiences")).sort((a, b) => {
       {/* Projects */}
       <section id="projects" class="pb-20 scroll-mt-20">
         <div
-          class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10 lg:hidden"
+          class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10 lg:hidden dark:bg-background/90"
         >
           <h2 class="font-bold uppercase tracking-widest">Projects</h2>
         </div>
@@ -54,9 +57,10 @@ const experiences = (await getCollection("experiences")).sort((a, b) => {
           target="_blank"
           rel="noopener noreferrer"
           class="px-3 group"
+          aria-label="Ver historial completo de proyectos en GitHub"
           ><Button
             variant="link"
-            className="text-black text-base font-semibold hover:text-primary"
+            className="text-black text-base font-semibold hover:text-primary dark:text-white dark:hover:text-primary"
             >View Project History <ArrowUpRight
               strokeWidth={3}
               className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
@@ -68,7 +72,7 @@ const experiences = (await getCollection("experiences")).sort((a, b) => {
       {/* Experience */}
       <section id="experience" class="pb-20 scroll-mt-20">
         <div
-          class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10 lg:hidden"
+          class="bg-white/90 px-6 py-5 backdrop-blur-sm sticky top-0 z-10 lg:hidden dark:bg-background/90"
         >
           <h2 class="font-bold uppercase tracking-widest">Experience</h2>
         </div>
@@ -82,9 +86,10 @@ const experiences = (await getCollection("experiences")).sort((a, b) => {
           target="_blank"
           rel="noopener noreferrer"
           class="px-3 group"
+          aria-label="Descargar currículum completo en PDF"
           ><Button
             variant="link"
-            className="text-black text-base font-semibold hover:text-primary"
+            className="text-black text-base font-semibold hover:text-primary dark:text-white dark:hover:text-primary"
             >View Complete Resume <ArrowDown
               strokeWidth={3}
               className="group-hover:animate-bounce"
