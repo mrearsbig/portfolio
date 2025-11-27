@@ -6,14 +6,10 @@
  * Persiste la preferencia en localStorage y respeta la preferencia del sistema.
  */
 import { Moon, Sun } from "lucide-react";
+import { Button } from "./ui/button";
 ---
 
-<button
-  id="theme-toggle"
-  type="button"
-  class="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-  aria-label="Alternar modo oscuro"
->
+<Button variant="outline" size="icon" id="theme-toggle" aria-label="Alternar modo oscuro">
   <Sun
     className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
   />
@@ -21,11 +17,9 @@ import { Moon, Sun } from "lucide-react";
     className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
   />
   <span class="sr-only">Alternar tema</span>
-</button>
+</Button>
 
 <script>
-  const themeToggle = document.getElementById("theme-toggle");
-
   // Get initial theme from localStorage or system preference
   const getThemePreference = (): "light" | "dark" => {
     const storedTheme = localStorage.getItem("theme");
@@ -46,18 +40,38 @@ import { Moon, Sun } from "lucide-react";
     }
   };
 
-  // Initialize theme
+  // Initialize theme immediately (runs once)
   applyTheme(getThemePreference());
 
-  // Toggle theme on button click
-  themeToggle?.addEventListener("click", () => {
-    const currentTheme = document.documentElement.classList.contains("dark")
-      ? "dark"
-      : "light";
-    const newTheme = currentTheme === "dark" ? "light" : "dark";
+  // Setup theme toggle functionality
+  const setupThemeToggle = () => {
+    const themeToggle = document.getElementById("theme-toggle");
 
-    localStorage.setItem("theme", newTheme);
-    applyTheme(newTheme);
+    if (!themeToggle) return;
+
+    // Remove existing listener to prevent duplicates
+    const handleClick = () => {
+      const currentTheme = document.documentElement.classList.contains("dark")
+        ? "dark"
+        : "light";
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+      localStorage.setItem("theme", newTheme);
+      applyTheme(newTheme);
+    };
+
+    // Remove and re-add to prevent duplicate listeners
+    themeToggle.removeEventListener("click", handleClick);
+    themeToggle.addEventListener("click", handleClick);
+  };
+
+  // Run on initial load
+  setupThemeToggle();
+
+  // Re-run on every page load (for View Transitions)
+  document.addEventListener("astro:page-load", () => {
+    applyTheme(getThemePreference());
+    setupThemeToggle();
   });
 
   // Listen for system preference changes

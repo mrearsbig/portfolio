@@ -14,7 +14,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <div
-  class="min-h-screen w-full relative bg-white dark:bg-background lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between"
+  class="min-h-screen w-full relative bg-background lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[48%] lg:flex-col lg:justify-between"
 >
   {/* Soft Yellow Glow */}
   <div
@@ -85,6 +85,9 @@ import ThemeToggle from "./ThemeToggle.astro";
               </Button>
             </a>
           </li>
+          <li>
+            <ThemeToggle />
+          </li>
         </ul>
       </nav>
     </div>
@@ -150,7 +153,6 @@ import ThemeToggle from "./ThemeToggle.astro";
           </li>
         </ul>
       </nav>
-      <ThemeToggle />
     </div>
   </header>
 </div>
