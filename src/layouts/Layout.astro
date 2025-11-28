@@ -80,6 +80,20 @@ const ogImage = new URL("/og-image.png", Astro.site);
         ],
       })}
     />
+
+    <!-- Prevent theme flash on page load -->
+    <script is:inline>
+      const getTheme = () => {
+        const stored = localStorage.getItem("theme");
+        if (stored === "dark" || stored === "light") return stored;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+      if (getTheme() === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
   <body>
     <!-- Skip to main content link for accessibility -->
