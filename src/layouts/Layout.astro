@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "Alexander Viafara | Software Developer",
-  description = "Software Developer especializado en desarrollo web moderno. Experiencia en React, TypeScript, Node.js y arquitecturas cloud. Creando soluciones digitales innovadoras.",
+  title = "Alexander Viafara | Systems Engineer & Backend Developer",
+  description = "Systems Engineer & Backend Developer focused on building reliable, scalable systems. Turning complex business rules into clean architectures and well-structured APIs.",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -16,7 +16,7 @@ const ogImage = new URL("/og-image.png", Astro.site);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +36,7 @@ const ogImage = new URL("/og-image.png", Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="es_CO" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -73,7 +73,7 @@ const ogImage = new URL("/og-image.png", Astro.site);
         "@type": "Person",
         name: "Alexander Viafara",
         url: Astro.site?.toString(),
-        jobTitle: "Software Developer",
+        jobTitle: "Systems Engineer & Backend Developer",
         sameAs: [
           "https://github.com/mrearsbig",
           "https://linkedin.com/in/alexanderviafara",
@@ -101,7 +101,7 @@ const ogImage = new URL("/og-image.png", Astro.site);
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:outline-none"
     >
-      Saltar al contenido principal
+      Skip to main content
     </a>
     <slot />
   </body>
