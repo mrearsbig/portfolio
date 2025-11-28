@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Cursor from "../components/Cursor";
 
 interface Props {
   title?: string;
@@ -81,18 +82,14 @@ const ogImage = new URL("/og-image.png", Astro.site);
       })}
     />
 
-    <!-- Prevent theme flash on page load -->
+    <!-- System-driven theme (no manual toggle) -->
     <script is:inline>
-      const getTheme = () => {
-        const stored = localStorage.getItem("theme");
-        if (stored === "dark" || stored === "light") return stored;
-        return window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
+      const media = window.matchMedia("(prefers-color-scheme: dark)");
+      const apply = () => {
+        document.documentElement.classList.toggle("dark", media.matches);
       };
-      if (getTheme() === "dark") {
-        document.documentElement.classList.add("dark");
-      }
+      apply();
+      media.addEventListener("change", apply);
     </script>
   </head>
   <body>
@@ -104,5 +101,6 @@ const ogImage = new URL("/og-image.png", Astro.site);
       Skip to main content
     </a>
     <slot />
+    <Cursor client:idle />
   </body>
 </html>
